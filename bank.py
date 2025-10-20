@@ -12,4 +12,13 @@ class Account:
         else:
             print("Ошибка.Сумма должна быть положительной.")
     
-  
+    def withdraw(self, amount): #Снятие денежных средств с комиссией
+        if amount <= 0 or amount > self.withdraw_limit: #снятие вместе с комиссией банка
+            print("Недопустимая сумма снятия!")
+        elif amount + (amount * self.commission_rate) > self.balance: #Проверка достаточно ли средств на балансе
+            print("Недостаточно средств на счете для операции.")
+        else:
+            commission = amount * self.commission_rate #Выполняется операция, если все условия успешной пройдены
+            total_withdrawal = amount + commission
+            self.balance -= total_withdrawal
+            print(f"Снято {amount}, комиссия составила {commission:.2f}. Остаток на счету: {self.balance:.2f}")
