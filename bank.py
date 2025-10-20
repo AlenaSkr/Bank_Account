@@ -22,3 +22,16 @@ class Account:
             total_withdrawal = amount + commission
             self.balance -= total_withdrawal
             print(f"Снято {amount}, комиссия составила {commission:.2f}. Остаток на счету: {self.balance:.2f}")
+
+    def check_balance(self): #Проверка текущего остатка на счету
+        return f"Текущий баланс счета {self.number}: {self.balance:.2f}"
+
+account = Account('Алена888', 8000)
+print(account.check_balance())
+account.add_account(3000)
+account.withdraw(2000)
+
+account2 = Account('Алена999', 12000)
+print(account2.check_balance())
+account2.add_account(33000)
+account2.withdraw(10)
